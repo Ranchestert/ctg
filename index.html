@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400..800&family=Inconsolata:wght@200..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  
+  <title>Frontend Mentor | Conference ticket generator</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <span class="forbg"></span>
+  <div class="ico">
+
+  </div>
+  <form name="inpdata" class="inpf">
+    <p>Your Journey to Coding Conf 2025 Starts Here!</p>
+    <p> Secure your spot at next year's biggest coding conference.</p>
+    <br>
+    <label for="f">Upload avatar:</label>
+    <div class="file-inp">
+      <input type="file" accept="image" id="pic_inp" required name="f">
+      <div class="rinp">
+        <p>Choose a file</p>
+      </div>
+    </div>
+    <br>
+    <label for="fname">Full name:</label>
+    <input type="text" name="fname" required>
+    <br>
+    <label for="mail">Email adress:</label>
+    <input type="text" name="mail" required>
+    <br>
+    <label for="git">Github username:</label>
+    <input type="text" name="git" required>
+    <br>
+    <div class="submit" id="submit">
+      <p>Generate My Ticket</p>
+    </div>
+  </form>
+
+  <div class="ready" style="display: none;">
+    <div class="repres">
+      <h1>Congrats, <span id="name" class="fnamec">aa</span>!</h1>
+      <h1>Your ticket is ready.</h1>
+    </div>
+    <p class="em-rep">We've emailed your ticket to <span id="mail" class="mail">aa</span> and will send updates in the run up to the event.</p>
+    <div class="ticket">
+      <div class="non">
+        <img src="assets/images/logo-full.svg" alt="ico" class="ico-ticket">
+        <p class="time">Jan 31, 2025 / Austin TX</p>
+      </div>
+      <div class="rep-ticket">
+        <img src="assets/images/image-avatar.jpg" id="profile" class="profile">
+        <div class="Info">
+          <span class="name-t" id="name-t">aa</span>
+          <div class="git-t">
+            <img src="assets/images/icon-github.svg">
+            <p class="git-text">@<span id="git-t">aa</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <script>
+    document.querySelector(".submit").addEventListener('click',(e)=>{
+      e.preventDefault()
+      var name=document.forms.inpdata.fname.value;
+      var email=document.forms.inpdata.mail.value;
+      var git=document.forms.inpdata.git.value;
+      var fli=document.forms.inpdata.f;
+      var fl=fli.files[0];
+      
+      const reader= new FileReader();
+      reader.onload = function (e) {
+            const img = document.querySelector("#profile");
+            img.src = e.target.result;
+            img.style.display = "block";
+        };
+      reader.readAsDataURL(fl)
+
+      document.querySelector("#mail").textContent=email;
+      document.querySelector("#git-t").textContent=git;
+      document.querySelector("#name").textContent=name;
+      document.querySelector("#name-t").textContent=name;
+
+      document.querySelector(".inpf").style.display="none";
+      document.querySelector(".ready").style.display="block";
+    })
+   </script>
+</body>
+</html>

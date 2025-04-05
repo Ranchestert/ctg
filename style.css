@@ -1,0 +1,206 @@
+:root{
+    --grad-or:linear-gradient(to left, hsla(7, 86%, 67%, 0.668), hsl(0, 0%, 100%));
+    --grad-xor:linear-gradient(to right, hsla(7, 86%, 67%, 0.668), hsl(0, 0%, 100%));
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url("assets/images/background-desktop.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    @media screen and (max-width:1440px) {
+        background-image: url("assets/images/background-tablet.png");
+    };
+    
+    @media screen and (max-width:375px) {
+        background-image: url("assets/images/background-mobile.png");
+    };
+    
+
+    font-family: "Inconsolata";
+    font-size: 28px;
+    color:white;
+}
+body::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+    
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-image: url("assets/images/pattern-squiggly-line-bottom-desktop.svg");
+    
+    @media screen and (max-width:1440px) {
+        background-image: url("assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg");
+    };
+}
+.forbg{
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-image: url("assets/images/pattern-lines.svg");
+}
+.forbg::before{
+    content: ' ';
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-image: url("assets/images/pattern-squiggly-line-top.svg");
+}
+.ico{
+    position: absolute;
+    display: block;
+    height: 10vh;
+    width: 100%;
+    top: 5%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-image: url("assets/images/logo-full.svg");
+    @media screen and(max-width:375px) {
+        background-image: url("assets/images/logo-mark.svg");
+    }
+}
+.inpf{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height:auto;
+    left: 50%;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+
+}
+.inpf input{
+    margin-top: 5px;
+}
+input[type="text"]{
+    padding: 10px;
+    font-size: 1.1rem;
+    height: 1vh;
+    width: 20vw;
+    width: auto;
+    background-color: rgba(255, 255, 255, .2);
+    border: 3px solid;
+    border-image: var(--grad-or);
+    border-image-slice: 1;
+    color: white;
+}
+.inpf input[type=file]{
+    height: 1.6rem;
+}
+.inpf .submit{
+    padding: 1vh;
+    border: 3px solid;
+    border-image: var(--grad-or);
+    border-image-slice: 1;
+    background-color: rgba(255, 255, 255, .2);
+}
+.inpf .submit:hover{
+    cursor: pointer;
+}
+.file-inp{
+    margin-top: 1vh;
+    position: relative;
+}
+.inpf input[type=file]{
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+}
+.inpf .rinp{
+    padding: 1vh;
+    border: 3px solid;
+    border-image: var(--grad-or);
+    border-image-slice: 1;
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.ready{
+    display: flex;
+    position: absolute;
+    top: 20vh;
+    left: 55%;
+    transform: translateX(-50%);
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+.fnamec{
+    background: var(--grad-xor);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.em-rep{
+    width: 70%;
+}
+
+.mail{
+    color: hsl(7, 71%, 60%);
+}
+
+.ticket{
+    display: flex;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("assets/images/pattern-ticket.svg");
+    flex-direction: column;
+    height: 280px;
+    width: 600px;
+    justify-content: center;
+    position: static;
+    justify-content: space-between;
+    margin-top: 4vh;
+}
+.non, .rep-ticket{
+    margin: 20px 20px 20px 20px;
+}
+.non{
+    position: relative;
+}
+.ico-ticket{
+    height:  46px;
+}
+.time{
+    font-size: 20px;
+    color: hsl(245, 15%, 58%);
+}
+.rep-ticket{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.profile{
+    height: 112px;
+    width:auto;
+    border-radius: 24px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.git-t{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    color: hsl(252, 6%, 83%);
+}
